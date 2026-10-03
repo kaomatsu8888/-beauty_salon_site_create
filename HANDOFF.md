@@ -61,13 +61,17 @@ function getBusinessStatus(now, hours) {
 ### 2-2. FAQ セクションと PC 幅の目視確認が未完了
 
 実装は済んでいるが、スクリーンショットでの確認が取れていない。
-確認が必要なのは次の 2 点だけ。
+残っているのは次の 2 点。
 
 - FAQ アコーディオン（`<details>`/`<summary>`）の開閉マークの位置
 - 幅 1280px でのヒーロー 2 カラム、スタイリスト 3 カラム、
   固定バーが消えていること（`@media (min-width: 900px)` で `display: none`）
 
 確認手順は本書 4 章に書いた。
+
+**固定予約バーは確認済み。** 375×812 でスクロールさせた状態で
+「ネット予約 / 電話 / LINE」の 3 ボタンが画面下部に出ること、
+スティッキーヘッダーが残ることを目視した。
 
 ### 2-3. GitHub Pages がまだ有効になっていない
 
@@ -150,8 +154,23 @@ HTML
   --screenshot=/tmp/shot.png http://127.0.0.1:8079/_shot.html
 ```
 
-`top:` の値を変えると縦位置を選べる（FAQ は `-8250px` 付近）。
+`top:` の値を変えると縦位置を選べる。
 PC 幅を見るときは `.clip` と `iframe` の `width` を `1280px` にする。
+
+**ただし iframe を 12000px のような高さにすると Chrome が描画を終えず、
+スクリーンショットが返ってこない。** 実際にこれで 1 回固まった。
+特定セクションを見たいときは、巨大 iframe ではなく
+**URL フラグメントで飛ばすほうが速くて確実**。
+
+```html
+<iframe src="index.html#faq" style="width:375px;height:812px"></iframe>
+```
+
+このとき `html { scroll-behavior: smooth }` のせいで
+スクロール途中の絵が撮れることがある。Chrome に
+`--force-prefers-reduced-motion` を渡すと、CSS 側の
+`prefers-reduced-motion: reduce` 対応が働いて `scroll-behavior: auto` になり、
+目的位置に瞬間移動する。アクセシビリティ対応がそのまま検証の道具になる。
 
 **注意点**
 - 1 回の実行に数分かかることがある。`run_in_background: true` で回す
@@ -214,7 +233,7 @@ PC 幅を見るときは `.clip` と `iframe` の `width` を `1280px` にする
 | 画像を `images/` にまとめ、外部画像を使わない | 済 |
 | 必要セクション 1〜8 | 済 |
 | モバイルファースト（375px 最適、PC 崩れなし） | 375px 済 / PC 幅は未目視 |
-| 画面下部に固定予約バー | 済 |
+| 画面下部に固定予約バー | 済（375×812 で目視確認） |
 | トップから予約まで 3 タップ以内 | 済（固定バー → メニュー選択 → 送信） |
 | 営業時間から営業中／終了を自動表示 | **未**（`TODO(human)`） |
 | タップ領域 44px 以上 | 済（CSS に `min-height` 指定） |

@@ -974,20 +974,25 @@ h3 {
   .actionbar {
     display: none;
   }
-  .site-header__inner {
-    padding-bottom: 12px;
-  }
   .site-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
     max-width: none;
-    padding-inline: max(20px, calc((100% - var(--wrap)) / 2));
+    /* 本文セクション（.wrap の内側）と左右の開始位置を揃える */
+    padding-inline: max(20px, calc((100% - var(--wrap)) / 2 + 20px));
   }
   .site-header__inner {
-    padding-inline: 0;
     flex: none;
+    padding: 0;
+    /**
+     * 【注意】親が flex になるため margin-inline: auto を必ず打ち消す。
+     *         flex アイテムの auto マージンは余白を吸い尽くし、
+     *         店名が中央へ押し出される
+     */
+    margin-inline: 0;
+    max-width: none;
   }
   .site-nav__list {
     padding: 0;
