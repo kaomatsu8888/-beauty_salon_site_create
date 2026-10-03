@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" width="480" height="600" role="img" aria-label="スタイル 5">
+  <rect width="480" height="600" fill="#F6F1EA"/>
+  <circle cx="374.40000000000003" cy="132" r="144" fill="#EADFD2" opacity="0.55"/>
+  <circle cx="96" cy="480" r="182.4" fill="#EADFD2" opacity="0.4"/>
+  <path d="M0 372 C 144 300, 336 444, 480 360 L 480 600 L 0 600 Z" fill="#EADFD2" opacity="0.5"/>
+  <g fill="#6E5F50" font-family="'Hiragino Mincho ProN', serif" text-anchor="middle">
+    <text x="240" y="288" font-size="30">スタイル 5</text>
+    <text x="240" y="336.00000000000006" font-size="17" opacity="0.7" font-family="'Hiragino Sans', sans-serif">gallery-05.jpg</text>
+  </g>
+</svg>

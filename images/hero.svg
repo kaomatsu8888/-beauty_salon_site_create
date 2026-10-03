@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="サロン内観">
+  <rect width="1200" height="900" fill="#F6F1EA"/>
+  <circle cx="960" cy="180" r="405" fill="#EADFD2" opacity="0.55"/>
+  <circle cx="216" cy="765" r="450" fill="#EADFD2" opacity="0.4"/>
+  <path d="M0 558 C 360 450, 840 666, 1200 540 L 1200 900 L 0 900 Z" fill="#EADFD2" opacity="0.5"/>
+  <g fill="#6E5F50" font-family="'Hiragino Mincho ProN', serif" text-anchor="middle">
+    <text x="600" y="441" font-size="58">サロン内観</text>
+    <text x="600" y="513" font-size="32" opacity="0.7" font-family="'Hiragino Sans', sans-serif">hero.jpg に差し替え</text>
+  </g>
+</svg>

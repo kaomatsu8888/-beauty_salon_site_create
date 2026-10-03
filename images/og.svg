@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="hair salon 凪">
+  <rect width="1200" height="630" fill="#E9EEE7"/>
+  <circle cx="936" cy="138.6" r="360" fill="#D7E0D4" opacity="0.55"/>
+  <circle cx="240" cy="504" r="456" fill="#D7E0D4" opacity="0.4"/>
+  <path d="M0 390.6 C 360 315, 840 466.2, 1200 378 L 1200 630 L 0 630 Z" fill="#D7E0D4" opacity="0.5"/>
+  <g fill="#55634F" font-family="'Hiragino Mincho ProN', serif" text-anchor="middle">
+    <text x="600" y="302.4" font-size="74">hair salon 凪</text>
+    <text x="600" y="352.8" font-size="43" opacity="0.7" font-family="'Hiragino Sans', sans-serif">og.jpg に差し替え（1200×630）</text>
+  </g>
+</svg>

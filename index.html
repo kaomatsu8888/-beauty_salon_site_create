@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!--
+  【注意】ここから </head> までの店舗名・説明文・URL は、SNS やクローラが
+          JavaScript を実行せずに読む箇所のため、data.js とは別に手で書き換える。
+          書き換え箇所は README.md の「3. head の書き換え」を参照
+-->
+<title>hair salon 凪（なぎ）｜福岡市西区姪浜の美容室</title>
+<meta name="description" content="福岡市西区姪浜のヘアサロン「凪」。スタイリスト3名の落ち着いた小さなサロンで、丁寧なカウンセリングと再現しやすいスタイルをご提案します。駐車場あり・お子さま同伴可。">
+<link rel="canonical" href="https://kaomatsu8888.github.io/-beauty_salon_site_create/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="hair salon 凪">
+<meta property="og:title" content="hair salon 凪（なぎ）｜福岡市西区姪浜の美容室">
+<meta property="og:description" content="福岡市西区姪浜の小さなヘアサロン。髪のくせや暮らしに合わせて、乾かすだけで決まる形に整えます。">
+<meta property="og:url" content="https://kaomatsu8888.github.io/-beauty_salon_site_create/">
+<meta property="og:image" content="https://kaomatsu8888.github.io/-beauty_salon_site_create/images/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FBFAF7">
+
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#hero">本文へスキップ</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <p class="site-header__name"><span data-bind="salon.name"></span></p>
+    <p class="site-header__status" data-bind="status.badge" aria-live="polite"></p>
+  </div>
+  <nav class="site-nav" aria-label="ページ内メニュー">
+    <ul class="site-nav__list">
+      <li><a href="#first-time">初めての方へ</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#staff">スタイリスト</a></li>
+      <li><a href="#gallery">ギャラリー</a></li>
+      <li><a href="#access">店舗情報</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 1. ファーストビュー -->
+  <section class="hero" id="hero">
+    <div class="hero__media">
+      <img data-bind-src="images.hero" data-bind-alt="images.heroAlt" width="1200" height="900" fetchpriority="high" decoding="async">
+    </div>
+    <div class="hero__body">
+      <p class="hero__en" data-bind="salon.nameEn"></p>
+      <h1 class="hero__catch" data-bind-html="salon.catch"></h1>
+      <p class="hero__lead" data-bind-html="salon.lead"></p>
+      <div class="hero__status" data-bind-html="status.full"></div>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" data-bind-href="salon.links.reserve">ご予約・ご相談</a>
+        <a class="btn btn--ghost" href="#first-time">初めての方へ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 初めての方へ -->
+  <section class="section section--tint" id="first-time">
+    <div class="wrap">
+      <h2 class="section__title" data-bind="firstTime.title"></h2>
+      <p class="section__lead" data-bind-html="firstTime.lead"></p>
+      <dl class="facts" data-render="firstTime"></dl>
+    </div>
+  </section>
+
+  <!-- 3. メニュー・料金 -->
+  <section class="section" id="menu">
+    <div class="wrap">
+      <h2 class="section__title" data-bind="menu.title"></h2>
+      <p class="section__note" data-bind="menu.note"></p>
+      <div data-render="menu"></div>
+      <div class="section__cta">
+        <a class="btn btn--primary" data-bind-href="salon.links.reserve">このメニューで予約する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. スタイリスト紹介 -->
+  <section class="section section--tint" id="staff">
+    <div class="wrap">
+      <h2 class="section__title" data-bind="staff.title"></h2>
+      <p class="section__lead" data-bind-html="staff.lead"></p>
+      <ul class="staff" data-render="staff"></ul>
+    </div>
+  </section>
+
+  <!-- 5. スタイルギャラリー -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <h2 class="section__title" data-bind="gallery.title"></h2>
+      <p class="section__lead" data-bind-html="gallery.lead"></p>
+      <ul class="gallery" data-render="gallery"></ul>
+    </div>
+  </section>
+
+  <!-- 6. 店舗情報・アクセス -->
+  <section class="section section--tint" id="access">
+    <div class="wrap">
+      <h2 class="section__title" data-bind="access.title"></h2>
+
+      <div class="map" data-render="map"></div>
+
+      <dl class="info">
+        <dt>店名</dt><dd data-bind="salon.name"></dd>
+        <dt>住所</dt>
+        <dd>
+          <span data-bind-html="salon.addressFull"></span>
+          <a class="info__maplink" data-bind-href="salon.mapLinkUrl" target="_blank" rel="noopener">地図アプリで開く</a>
+        </dd>
+        <dt>電話</dt>
+        <dd><a class="info__tel" data-bind-tel="salon.tel" data-bind="salon.tel"></a>
+          <span class="info__sub" data-bind="salon.telNote"></span></dd>
+        <dt>営業時間</dt>
+        <dd><table class="hours" data-render="hours"></table>
+          <span class="info__sub" data-bind="hours.note"></span></dd>
+        <dt>定休日</dt><dd data-bind="hours.closedLabel"></dd>
+        <dt>アクセス</dt><dd data-render="routes"></dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 7. よくある質問 -->
+  <section class="section" id="faq">
+    <div class="wrap wrap--narrow">
+      <h2 class="section__title" data-bind="faq.title"></h2>
+      <div class="faq" data-render="faq"></div>
+    </div>
+  </section>
+
+  <!-- 8. 予約導線 -->
+  <section class="section section--reserve" id="reserve">
+    <div class="wrap wrap--narrow">
+      <h2 class="section__title" data-bind="reserve.title"></h2>
+      <p class="section__lead" data-bind-html="reserve.lead"></p>
+      <div class="section__status" data-bind-html="status.full"></div>
+      <ul class="reserve" data-render="reserve"></ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="site-footer__name" data-bind="salon.name"></p>
+    <p class="site-footer__addr" data-bind-html="salon.addressFull"></p>
+    <p class="site-footer__note">※このサイトは架空の店舗によるデモサイトです。</p>
+    <p class="site-footer__copy">&copy; <span data-bind="salon.nameEn"></span></p>
+  </div>
+</footer>
+
+<!-- 画面下部の固定予約バー -->
+<div class="actionbar" id="actionbar">
+  <a class="actionbar__item actionbar__item--primary" data-bind-href="salon.links.reserve">
+    <span class="actionbar__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="4.5" width="17" height="16" rx="2"/><path d="M8 3v3M16 3v3M3.5 9.5h17M8.5 14h7"/></svg>
+    </span>
+    <span class="actionbar__label">ネット予約</span>
+  </a>
+  <a class="actionbar__item" data-bind-tel="salon.tel">
+    <span class="actionbar__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3.5h3l1.5 4-2 1.5a11 11 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4 5.7 2 2 0 0 1 6 3.5z"/></svg>
+    </span>
+    <span class="actionbar__label">電話</span>
+  </a>
+  <a class="actionbar__item" data-bind-href="salon.links.line">
+    <span class="actionbar__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10.5c0-4-4-7.2-9-7.2S3 6.5 3 10.5c0 3.6 3.2 6.6 7.5 7.1.4 1 .3 2 .2 2.8 2.3-1 10.3-5.3 10.3-9.9z"/></svg>
+    </span>
+    <span class="actionbar__label">LINE</span>
+  </a>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/hours.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
