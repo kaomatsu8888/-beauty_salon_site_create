@@ -1,0 +1,5 @@
+# 表示確認用に一時生成するキャプチャ用ページ
+_*.html
+debug.html
+
+.DS_Store
